@@ -18,6 +18,12 @@ routes.get('/', (req, res) => {
   res.status(200).json(produtos);
 });
 
+routes.get('/name', (req, res) => {
+  const { name, marca } = req.query;
+  console.log(req.query);
+  res.status(200).json({ product: {nome: name, marca} });
+});
+
 function validatePrice (req, res, next) {
   const { price } = req.body;
 
